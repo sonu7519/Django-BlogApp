@@ -1,0 +1,47 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="col-sm-10">
+    <h3 class="text">Dashboard page</h3>
+    <!-- <a href="{% url 'addblog' %}" class="btn btn-success">Add Blog</a> -->
+    {% if post %}
+    <h4 class="text-centre alert alert-info mt-3">Show Post</h4>
+   
+    <table class="table table-hver bg-white">
+        <thead>
+            <tr class="text-centre">
+                <th scope="col" style="width:25%">ID</th>
+                <th scope="col" style="width:28%">Title</th>
+                <th scope="col" style="width:55%">Description</th>
+                <th scope="col" style="width:15%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in post %}
+            <tr>
+                <th scope="row">{{post.id}}</th>
+                <td>{{post.title}}</td>
+                <td>{{post.desc}}</td>
+                <td class="text-centre">
+                    <a href="{% url 'updateblog' post.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    {% if perms.blog.delete_blog %}
+                    <form action="{% url 'deleteblog' post.id %}" method="post" class="d-inline"> {% csrf_token %}
+                        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h4 class="text-centre alert alert-warning">No Records</h4>
+    {% endif %}
+
+    <a href="{% url 'addblog' %}" class="btn btn-success">Create New Blog</a>
+</div>
+
+{% endblock content %}

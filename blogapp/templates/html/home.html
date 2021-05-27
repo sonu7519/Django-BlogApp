@@ -1,0 +1,40 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="container py-4">
+      
+  
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Write some inovative</h1>
+          <p class="col-md-8 fs-4">Using the blogging site make your idea a home and share with other people in a simple and easy way</p>
+          <!-- <a href="{% url 'signup'%}" class="btn btn-outline-secondary" type="button">Write some interesting fact</a> -->
+        </div>
+      </div>
+  
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Share your knowledge with this world</h2>
+            <p>Using the platform to share your inovative idea to this world and make idea konw to the world</p>
+            <!-- <a href="{% url 'login'%}" class="btn btn-outline-light" type="button">Explore it</a> -->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Write as well as explore something new</h2>
+            <p>Never limit your knowledge in a wall break this wall and make to share your knowloedge to the other people as well</p>
+            <!-- <a href="{% url 'login' %}" class="btn btn-outline-secondary" type="button">Try something New</a> -->
+          </div>
+        </div>
+      </div>
+  
+      <footer class="pt-3 mt-4 text-muted border-top">
+         2021 {{owner}}
+      </footer>
+    </div>
+  </main>
+
+{% endblock content %}
